@@ -4,17 +4,17 @@ using ReactiveUI.Fody.Helpers;
 
 namespace Calendar.ViewModels;
 
-public class CalendarDay : ReactiveObject
+public class CalendarDayViewModel : ReactiveObject
 {
     public Option<DateTimeOffset> Day { get; private set; }
     [Reactive] public bool IsSelected { get; set; }
 
-    internal CalendarDay()
+    internal CalendarDayViewModel()
     {
         Day = Option<DateTimeOffset>.None;
     }
 
-    internal CalendarDay(DateTimeOffset day)
+    internal CalendarDayViewModel(DateTimeOffset day)
     {
         Day = day;
     }

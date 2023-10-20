@@ -23,9 +23,12 @@ public partial class CalendarMonthView
         });
     }
 
-    private static void PopulateFromViewModel(CalendarMonthView view, CalendarMonth viewModel,
+    private static void PopulateFromViewModel(CalendarMonthView view, CalendarMonthViewModel viewModel,
         CompositeDisposable disposables)
     {
-        
+        view.OneWayBind( viewModel ,
+                vm => vm.Days ,
+                v => v.ItemsControlDays.ItemsSource )
+            .DisposeWith( disposables );
     }
 }

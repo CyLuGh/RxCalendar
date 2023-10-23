@@ -9,9 +9,29 @@
                           xmlns:viewModels="clr-namespace:Calendar.ViewModels;assembly=Calendar.ViewModels"
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
+    <!-- <UserControl.Resources> -->
+    <!--     <ResourceDictionary.MergedDictionaries> -->
+    <!--         <ResourceDictionary Source=""></ResourceDictionary> -->
+    <!--     </ResourceDictionary.MergedDictionaries> -->
+    <!-- </UserControl.Resources> -->
     <Grid x:Name="GridOuter">
-        <Border x:Name="BorderOuter">
-            <TextBlock>TEST</TextBlock>
+        <Border x:Name="BorderOuter"
+                Margin="3"
+                BorderThickness="1"
+                BorderBrush="DimGray"
+                CornerRadius="5">
+            <DockPanel>
+                <UniformGrid Rows="1" DockPanel.Dock="Top">
+                    <CheckBox Margin="2" VerticalAlignment="Center" />
+                    <TextBlock x:Name="TextBlockDay"
+                               Text="00"
+                               Margin="2"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" />
+                </UniformGrid>
+                <Separator DockPanel.Dock="Top" Margin="2 1" />
+                <ItemsControl Margin="5"></ItemsControl>
+            </DockPanel>
         </Border>
     </Grid>
 </rxui:ReactiveUserControl>

@@ -14,14 +14,12 @@ public class CalendarViewModel : ReactiveObject
 
     public ReactiveCommand<int , Unit> ChangeMonth { get; }
 
-
-    public CalendarViewModel() : this( new CalendarFactory() )
+    public CalendarViewModel() : this( new DefaultCalendarFactory() )
     {
     }
 
-    public CalendarViewModel( CalendarFactory calendarFactory )
+    public CalendarViewModel( ICalendarFactory calendarFactory )
     {
-        MonthViewModel = new();
         Year = DateTime.Today.Year;
         Month = DateTime.Today.Month;
         

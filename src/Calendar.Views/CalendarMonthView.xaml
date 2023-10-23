@@ -9,16 +9,37 @@
                           xmlns:viewModels="clr-namespace:Calendar.ViewModels;assembly=Calendar.ViewModels"
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
-    <ItemsControl x:Name="ItemsControlDays">
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <UniformGrid Columns="7" />
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-        <ItemsControl.ItemTemplate>
-            <DataTemplate DataType="{x:Type viewModels:CalendarDayViewModel}">
-                <local:CalendarDayView ViewModel="{Binding Path=.}"/>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+    <DockPanel>
+        <UniformGrid Rows="1" DockPanel.Dock="Top">
+            <UniformGrid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </UniformGrid.Resources>
+            <TextBlock>M</TextBlock>
+            <TextBlock>T</TextBlock>
+            <TextBlock>W</TextBlock>
+            <TextBlock>T</TextBlock>
+            <TextBlock>F</TextBlock>
+            <TextBlock>S</TextBlock>
+            <TextBlock>S</TextBlock>
+        </UniformGrid>
+        <ItemsControl x:Name="ItemsControlDays">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="7" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type viewModels:CalendarDayViewModel}">
+                    <rxui:ViewModelViewHost ViewModel="{Binding Path=.}"
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalContentAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            VerticalContentAlignment="Stretch" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DockPanel>
 </rxui:ReactiveUserControl>

@@ -8,9 +8,9 @@ using System.Windows.Controls;
 
 namespace Calendar.Views;
 
-public partial class CalendarDayView
+public partial class CalendarDayToggleView
 {
-    public CalendarDayView()
+    public CalendarDayToggleView()
     {
         InitializeComponent();
 
@@ -24,19 +24,29 @@ public partial class CalendarDayView
         } );
     }
 
-    private static void PopulateFromViewModel( CalendarDayView view , CalendarDayViewModel viewModel ,
+    private static void PopulateFromViewModel( CalendarDayToggleView view , CalendarDayViewModel viewModel ,
         CompositeDisposable disposables )
     {
         view.OneWayBind( viewModel ,
                 vm => vm.Day ,
-                v => v.GridOuter.Visibility ,
+                v => v.ToggleButtonDay.Visibility ,
                 o => o.IsSome ? Visibility.Visible : Visibility.Collapsed )
+            .DisposeWith( disposables );
+        
+        view.OneWayBind( viewModel ,
+                vm => vm.Day ,
+                v => v.ToggleButtonDay.Content ,
+                o => o.Match(d=>$"{d.Day:00}",()=>string.Empty  ) )
+            .DisposeWith( disposables );
+
+        view.Bind( viewModel ,
+                vm => vm.IsSelected ,
+                v => v.ToggleButtonDay.IsChecked )
             .DisposeWith( disposables );
 
         view.OneWayBind( viewModel ,
-                vm => vm.Day ,
-                v => v.TextBlockDay.Text ,
-                o => o.Match( d => $"{d.Day:00}" , () => string.Empty ) )
+                vm => vm.IsSelectable ,
+                v => v.IsHitTestVisible )
             .DisposeWith( disposables );
     }
 }

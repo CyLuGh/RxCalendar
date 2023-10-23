@@ -1,4 +1,7 @@
 ﻿using Calendar.ViewModels;
+using Calendar.Views;
+using ReactiveUI;
+using Splat;
 using System;
 using System.Collections.Generic;
 using System.Linq;

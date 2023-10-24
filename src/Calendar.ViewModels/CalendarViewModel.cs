@@ -10,13 +10,9 @@ public class CalendarViewModel : ReactiveObject
     [Reactive] public int Year { get; set; }
     [Reactive] public int Month { get; set; }
     public DateTimeOffset CurrentDate { [ObservableAsProperty] get; }
-    public CalendarMonthViewModel MonthViewModel { [ObservableAsProperty]get; }
+    public CalendarMonthViewModel? MonthViewModel { [ObservableAsProperty]get; }
 
     public ReactiveCommand<int , Unit> ChangeMonth { get; }
-
-    public CalendarViewModel() : this( new DefaultCalendarFactory() )
-    {
-    }
 
     public CalendarViewModel( ICalendarFactory calendarFactory )
     {

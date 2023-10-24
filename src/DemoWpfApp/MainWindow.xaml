@@ -6,8 +6,32 @@
         xmlns:local="clr-namespace:DemoWpfApp"
         xmlns:views="clr-namespace:Calendar.Views;assembly=Calendar.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800">
     <Grid>
-        <views:CalendarView x:Name="CalendarView" />
+        <TabControl>
+            <TabItem Header="No Style">
+                <TabItem.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.MergedDictionaries>
+                            <ResourceDictionary Source="pack://application:,,,/Calendar.Views;component/CalendarDictionary.xaml" />
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </TabItem.Resources>
+                <views:CalendarView x:Name="CalendarView" />
+            </TabItem>
+            <TabItem Header="Material">
+                <TabItem.Resources>
+                    <ResourceDictionary>
+                        <ResourceDictionary.MergedDictionaries>
+                            <ResourceDictionary Source="MaterialCalendarDictionary.xaml" />
+                        </ResourceDictionary.MergedDictionaries>
+                    </ResourceDictionary>
+                </TabItem.Resources>
+                <views:CalendarView x:Name="CalendarViewMaterial" />
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>

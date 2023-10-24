@@ -10,20 +10,15 @@
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-        <UniformGrid Rows="1" DockPanel.Dock="Top">
-            <UniformGrid.Resources>
-                <Style TargetType="TextBlock">
-                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                    <Setter Property="VerticalAlignment" Value="Center"/>
-                </Style>
-            </UniformGrid.Resources>
-            <TextBlock>M</TextBlock>
-            <TextBlock>T</TextBlock>
-            <TextBlock>W</TextBlock>
-            <TextBlock>T</TextBlock>
-            <TextBlock>F</TextBlock>
-            <TextBlock>S</TextBlock>
-            <TextBlock>S</TextBlock>
+        <UniformGrid Rows="1"
+                     DockPanel.Dock="Top">
+            <TextBlock Style="{DynamicResource DayHeader}">M</TextBlock>
+            <TextBlock Style="{DynamicResource DayHeader}">T</TextBlock>
+            <TextBlock Style="{DynamicResource DayHeader}">W</TextBlock>
+            <TextBlock Style="{DynamicResource DayHeader}">T</TextBlock>
+            <TextBlock Style="{DynamicResource DayHeader}">F</TextBlock>
+            <TextBlock Style="{DynamicResource DayHeader}">S</TextBlock>
+            <TextBlock Style="{DynamicResource DayHeader}">S</TextBlock>
         </UniformGrid>
         <ItemsControl x:Name="ItemsControlDays">
             <ItemsControl.ItemsPanel>

@@ -9,5 +9,6 @@
                           xmlns:viewModels="clr-namespace:Calendar.ViewModels;assembly=Calendar.ViewModels"
                           mc:Ignorable="d"
                           d:DesignHeight="300" d:DesignWidth="300">
-    <ToggleButton x:Name="ToggleButtonDay"/>
+    <ToggleButton x:Name="ToggleButtonDay"
+                  Style="{DynamicResource CalendarDayToggle}"/>
 </rxui:ReactiveUserControl>
